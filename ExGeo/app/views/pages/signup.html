@@ -1,0 +1,72 @@
+<div class="clients white-bg ng-scope">
+    <ul class="client-logos">
+        <li>
+            <a href="">Sign Up</a>
+        </li>
+
+    </ul>
+</div>
+<section id="section1" class="services grey-bg ng-scope page-sign-up">
+    <div class="page-signup">
+      
+        <div class="signup-body">
+            <div class="container">
+                <div class="form-container">
+                    <section class="row signin-social text-center">
+                        <a href="javascript:;" class="btn-twitter-round"><i class="fa fa-twitter"></i></a>
+                        <div class="space"></div>
+                        <a href="javascript:;" class="btn-facebook-round"><i class="fa fa-facebook"></i></a>
+                        <div class="space"></div>
+                        <a href="javascript:;" class="btn-google-plus-round"><i class="fa fa-google-plus"></i></a>
+                    </section>
+                    <span class="line-thru">OR</span>
+                    <section>
+                        <form class="form-horizontal form-validation" name="registerForm" novalidate>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="User name" ng-model="registerInfo.userName" name="username" required="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Email" ng-model="registerInfo.email"
+                                           required="email" name="email" email-pattern-validator>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </span>
+                                    <input type="password"
+                                           class="form-control"
+                                           placeholder="Password" ng-model="registerInfo.password" name="password" required="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="text-muted text-small">By clicking on Sign up, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a></p>
+                                <div class="divider"></div>
+                                <a class="btn btn-primary btn-lg btn-block" ng-click="register(registerForm)">Sign up</a>
+                                <a class="btn btn-primary btn-lg btn-block" ng-click="registerAuth();">Sign up With Auth0</a>
+                            </div>
+
+                        </form>
+                    </section>
+                    <section>
+                        <p class="text-center text-muted">Already have an account? <a href="#/pages/signin">Log in now</a></p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

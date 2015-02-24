@@ -1,0 +1,248 @@
+﻿
+<section id="section1" class="services grey-bg ng-scope page-send-money">
+    <div class="container">
+        <div class="white-bg">
+            <ol class="breadcrumb-alt">
+                <li><a href="javascript:;" class="active">Explore Options</a></li>
+                <li><a href="javascript:;">Sign Up</a></li>
+                <li><a href="javascript:;">Recepient</a></li>
+                <li><a href="javascript:;">Payment</a></li>
+                <li> <a href="javascript:;">Review</a></li>
+            </ol>
+        </div>
+        <!-- SECTION HEADER -->
+        <div class="row">
+            <!-- SINGLE SERVICE -->
+            <div data-wow-duration="1.75s" data-wow-offset="10" class="col-md-8 wow fadeInLeft animated"
+                 style="visibility: visible; animation-duration: 1.75s; animation-name: fadeInLeft;">
+                <div class="single-service border-bottom-hover">
+
+                    <div class="panel-group" id="accordion">
+
+                        <!-- SINGLE ACORDIION -->
+                        <div class="panel panel-default">
+
+                            <!-- ACORDIION HEADING / TITLE -->
+                            <div class="panel-heading" id="headingOne">
+                                <h4 class="panel-title">
+                                    <span data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false"
+                                          aria-controls="collapseOne">
+                                        <span class="icon-container color-bg"><span class="glyphicon glyphicon-ok white-text"></span></span>
+                                        <span class="title-text">Where are you sending money?</span>
+                                    </span>
+                                </h4>
+                            </div>
+
+                            <!-- ACORDIION DESCRIPTION / TEXT -->
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="control-label">Transfer to:</div>
+                                            <span class="ui-select">
+                                                <select id="ddlCountry">
+                                                    <option>India</option>
+                                                </select>
+                                            </span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="control-label">
+                                                Already have an account? <a href="#">Log in</a> to send to an existing recipient
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="dotted-line"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <button class="btn btn-w-md btn-gap-v btn-primary right">Continue</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SINGLE ACORDIION -->
+                        <div class="panel panel-default">
+
+                            <!-- ACORDIION HEADING / TITLE -->
+                            <div class="panel-heading" id="headingTwo">
+                                <h4 class="panel-title disabled">
+                                    <span data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false"
+                                          aria-controls="collapseTwo">
+                                        <span class="icon-container color-bg"><span class="glyphicon white-text"></span></span>
+                                        <span class="title-text">How much would you like to send?</span>
+                                    </span>
+                                </h4>
+                            </div>
+
+                            <!-- ACORDIION DESCRIPTION / TEXT -->
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="exchange-rate">
+                                                Locked-in exchange rate : <span id="exchange-rate">
+                                                    1
+                                                    <abbr title="U.S. Dollar">USD</abbr> = 21.8004 <abbr title="Honduran Lempira">HNL</abbr>
+                                                </span>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div id="column-send">
+                                                    <div class="control-label">Send Amount</div>
+                                                    <input type="text" maxlength="9" autocomplete="off"
+                                                           value="" name="sendAmount"
+                                                           id="sendAmount">
+                                                    <div class="instruction">U.S. Dollar (USD)</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 equal-column">=</div>
+
+                                            <div class="col-md-5">
+                                                <div class="control-label">Recipient receives</div>
+                                                <span id="amount-received" class="readonly">0.00</span>
+                                                <div id="receive-country" class="control-label">
+                                                    Honduran Lempira (HNL)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="dotted-line"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-w-md btn-gap-v btn-default left">Back</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-w-md btn-gap-v btn-primary right">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SINGLE ACORDIION -->
+                        <div class="panel panel-default">
+
+                            <!-- ACORDIION HEADING / TITLE -->
+                            <div class="panel-heading" id="headingThree">
+                                <h4 class="panel-title disabled">
+                                    <span data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false"
+                                          aria-controls="collapseThree">
+                                        <span class="icon-container color-bg"><span class="glyphicon white-text"></span></span>
+                                        <span class="title-text">How is the money received?</span>
+                                    </span>
+                                </h4>
+                            </div>
+
+                            <!-- ACORDIION DESCRIPTION / TEXT -->
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            Instant Deposits to ICICI Bank, HDFC Bank, PNB, Bank of Baroda, Union Bank of India, Federal Bank, Yes Bank and Kotak Mahindra Bank. Deposits within 4 hours to other banks when sent within Indian banking hours.†
+                                        </div>
+                                    </div>
+
+                                    <div class="dotted-line"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-w-md btn-gap-v btn-default left">Back</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-w-md btn-gap-v btn-primary right">Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SINGLE ACORDIION -->
+                        <div class="panel panel-default">
+
+                            <!-- ACORDIION HEADING / TITLE -->
+                            <div class="panel-heading" id="headingFour">
+                                <h4 class="panel-title disabled">
+                                    <span data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="false"
+                                          aria-controls="collapseFour">
+                                        <span class="icon-container color-bg"><span class="glyphicon white-text"></span></span>
+                                        <span class="title-text">How do you want to pay?</span>
+                                    </span>
+                                </h4>
+                            </div>
+
+                            <!-- ACORDIION DESCRIPTION / TEXT -->
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="ui-radio"><input type="radio" value="option1" name="radio1"><span></span></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            Pay with your bank account.
+                                        </div>
+                                    </div>
+
+                                    <div class="dotted-line"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-w-md btn-gap-v btn-default left">Back</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-w-md btn-gap-v btn-primary right">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-wow-duration="1.75s" data-wow-offset="10" class="col-md-4 wow fadeInLeft animated"
+                 style="visibility: visible; animation-duration: 1.75s; animation-name: fadeInLeft;">
+                <div class="single-service border-bottom-hover">
+
+                    <div class="panel panel-default transfer-summery">
+                        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span>Transfer Summary</strong></div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">00.00 USD</span>
+                                You are sending
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge badge-warning">00.00 USD</span>
+                                Transaction fee
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge badge-info">00.00 USD</span>
+                                Your total
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge badge-success">00.00 USD</span>
+                                Recipient receives
+                            </li>
+                            <li class="list-group-item">
+                                Exchange rate
+                                1USD = 21.8004 HNL
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

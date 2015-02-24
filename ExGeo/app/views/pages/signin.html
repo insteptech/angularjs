@@ -1,0 +1,72 @@
+<div class="clients white-bg ng-scope">
+    <ul class="client-logos">
+        <li>
+            <a href="">Sign In</a>
+        </li>
+        
+    </ul>
+</div>
+<section id="section1" class="services grey-bg ng-scope page-sign-in">
+    <div class="container">
+        <div class="page-signin">
+
+            <div class="signin-body">
+                <div class="container">
+                    <div class="form-container">
+
+                        <div class="row signin-social text-center">
+                            <a href="javascript:;" class="btn-twitter-round"><i class="fa fa-twitter"></i></a>
+                            <div class="space"></div>
+                            <a href="javascript:;" class="btn-facebook-round"><i class="fa fa-facebook"></i></a>
+                            <div class="space"></div>
+                            <a href="javascript:;" class="btn-google-plus-round"><i class="fa fa-google-plus"></i></a>
+                        </div>
+
+                        <span class="line-thru">OR</span>
+
+                        <form class="form-horizontal form-validation" name="loginForm" novalidate>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </span>
+                                        <input type="text" ng-model="loginInfo.email"
+                                               name="email"
+                                               class="form-control"
+                                               placeholder="Email" required="email" email-pattern-validator />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-lock"></span>
+                                        </span>
+                                        <input type="password"
+                                               class="form-control"
+                                               name="password"
+                                               placeholder="Password"
+                                               ng-model="loginInfo.password" required="password" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <a class="btn btn-primary btn-lg btn-block" ng-click="login(loginForm);">Log in</a>
+                                    <a class="btn btn-primary btn-lg btn-block" ng-click="authlogin();">Log in With Auth0</a>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <section>
+                            <p class="text-center"><a href="javascript:;">Forgot your password?</a></p>
+                            <p class="text-center text-muted text-small">Don't have an account yet? <a href="#/pages/signup">Sign up</a></p>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
