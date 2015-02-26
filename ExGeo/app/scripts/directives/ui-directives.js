@@ -46,12 +46,7 @@ angular.module('exGeo.ui.directives', [])
                 function ($scope, $location, auth, store, $cookies, $utils, $exGeoAuthenticate, logger) {
 
                     $scope.authlogin = function () {
-                        auth.signin({}, function (profile, token) {
-                            $exGeoAuthenticate.setSignIn(profile, token);
-
-                        }, function (error) {
-                            logger.logError("There was an error logging in");
-                        });
+                        $exGeoAuthenticate.login();
                     };
 
                     return $scope.isLogin = function () {
@@ -76,12 +71,7 @@ angular.module('exGeo.ui.directives', [])
                 function ($scope, $location, auth, store, $cookies, $utils, logger, $exGeoAuthenticate) {
 
                     $scope.registerAuth = function () {
-                        auth.signup({}, function (profile, token) {
-                            logger.log('sign up done');
-
-                        }, function (error) {
-                            logger.logError("There was an error in sign up");
-                        });
+                        $exGeoAuthenticate.signUp();
                     };
 
                     return $scope.isLogin = function () {
@@ -97,9 +87,6 @@ angular.module('exGeo.ui.directives', [])
         return {
             restrict: "E",
             replace: true,
-            //scope: {              // set up directive's isolated scope
-            //    type: "@",          // name var passed by value (string, one-way)
-            //},
             template: ' <a ng-show="!isLogin()" ng-click="logoutAuth();">Logout</a>',
             controller: [
                 '$scope', '$location', 'auth', 'store', '$cookies', '$utils', 'logger', '$exGeoAuthenticate',
@@ -126,7 +113,7 @@ angular.module('exGeo.ui.directives', [])
             //},
             template: '<ul class="nav navbar-nav navbar-right login-register small-text">' +
                  ' <li ng-show="isLogin()" class="login "><a ng-show="isLogin()" ng-click="authlogin();">Sign In</a></li>' +
-                ' <li ng-show="isLogin()" class="login "><a  ng-click="registerAuth();">Sign Up</a></li>' +
+                 ' <li ng-show="isLogin()" class="login "><a  ng-click="registerAuth();">Sign Up</a></li>' +
                  ' <li ng-show="!isLogin()" class="login "><a ng-show="!isLogin()" ng-click="logoutAuth();">Logout</a></li> </ul>'
                 ,
             controller: [
@@ -134,12 +121,7 @@ angular.module('exGeo.ui.directives', [])
                 function ($scope, $location, auth, store, $cookies, $utils, logger, $exGeoAuthenticate) {
 
                     $scope.registerAuth = function () {
-                        auth.signup({}, function (profile, token) {
-                            logger.log('sign up done');
-
-                        }, function (error) {
-                            logger.logError("There was an error in sign up");
-                        });
+                        $exGeoAuthenticate.signUp();
                     };
 
                     $scope.logoutAuth = function () {
@@ -147,12 +129,7 @@ angular.module('exGeo.ui.directives', [])
                     };
 
                     $scope.authlogin = function () {
-                        auth.signin({}, function (profile, token) {
-                            $exGeoAuthenticate.setSignIn(profile, token);
-
-                        }, function (error) {
-                            logger.logError("There was an error logging in");
-                        });
+                        $exGeoAuthenticate.login();
                     };
 
                     return $scope.isLogin = function () {
@@ -163,4 +140,89 @@ angular.module('exGeo.ui.directives', [])
                 }
             ]
         };
-    });
+    })
+
+.directive('loginSignUp', ['$compile', function ($compile) {
+
+    var templateLoginHeader = '<ul class="nav navbar-nav navbar-right login-register small-text">' +
+        ' <li ng-show="isLogin()" class="login "><a ng-show="isLogin()" ng-click="authlogin();">Sign In</a></li>' +
+        ' <li ng-show="isLogin()" class="login "><a  ng-click="registerAuth();">Sign Up</a></li>' +
+        ' <li ng-show="!isLogin()" class="login "><a ng-show="!isLogin()" ng-click="logoutAuth();">Log Out</a></li> </ul>';
+
+    var templateSubHeader = '<ol class="breadcrumb-alt">'+
+                '<li><a href="javascript:;" class="active">Explore Options</a></li>'+
+                '<li  ng-show="isLogin()"><a ng-click="registerAuth();">Sign Up</a></li>' +
+                '<li><a href="javascript:;">Recepient</a></li>'+
+                '<li><a href="javascript:;">Payment</a></li>'+
+                '<li><a href="javascript:;">Review</a></li>'+
+                '</ol>';
+
+    var templateSignUpButton = '<button ng-show="isLogin()" ng-click="registerAuth();" class="btn btn-w-md btn-gap-v btn-primary right">Sign Up</button>';
+
+    var templateSignInLink = '<div ng-show="isLogin()" class="control-label">' +
+        'Already have an account? <a ng-click="authlogin();" >Log in</a> to send to an existing recipient' +
+        '</div>';
+
+    var getTemplate = function (contentType) {
+        var template = '';
+
+        switch (contentType) {
+            case 'loginheader':
+                template = templateLoginHeader;
+                break;
+            case 'subheader':
+                template = templateSubHeader;
+                break;
+            case 'signupbutton':
+                template = templateSignUpButton;
+                break;
+            case 'signinlink':
+                template = templateSignInLink;
+                break;
+
+        }
+
+        return template;
+    };
+
+    var linker = function (scope, element, attrs) {
+        console.log(scope.content);
+        element.html(getTemplate(scope.content));
+
+        $compile(element.contents())(scope);
+    };
+
+    return {
+        restrict: "E",
+        replace: true,
+        scope: {
+            content: "@",
+        },
+        link: linker,
+
+        controller: [
+            '$scope', '$location', 'auth', 'store', '$cookies', '$utils', 'logger', '$exGeoAuthenticate',
+            function ($scope, $location, auth, store, $cookies, $utils, logger, $exGeoAuthenticate) {
+                console.log('call');
+                console.log($scope.content);
+                $scope.registerAuth = function () {
+                    $exGeoAuthenticate.signUp();
+                };
+
+                $scope.logoutAuth = function () {
+                    $exGeoAuthenticate.logoutAuth();
+                };
+
+                $scope.authlogin = function () {
+                    $exGeoAuthenticate.login();
+                };
+
+                return $scope.isLogin = function () {
+                    var showLogin;
+
+                    return showLogin = $exGeoAuthenticate.isLogin();
+                };
+            }
+        ]
+    };
+}]);

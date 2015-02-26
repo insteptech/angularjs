@@ -3,8 +3,8 @@
 
 angular.module('exGeo.exGeoAuthenticate', [])
 
-    .factory('$exGeoAuthenticate', ['$http', '$rootScope', '$location', 'auth', 'store', 'jwtHelper', '$cookies','$utils','$exGeoPages',
-        function ($http, $rootScope, $location, auth, store, jwtHelper, $cookies, $utils, $exGeoPages) {
+    .factory('$exGeoAuthenticate', ['$http', '$rootScope', '$location', 'auth', 'store', 'jwtHelper', '$cookies', '$utils', '$exGeoPages', 'logger',
+        function ($http, $rootScope, $location, auth, store, jwtHelper, $cookies, $utils, $exGeoPages, logger) {
 
             var factory = {};
 
@@ -65,6 +65,24 @@ angular.module('exGeo.exGeoAuthenticate', [])
                 store.set($utils.storeConfig().profile, profile);
                 store.set($utils.storeConfig().token, token);
                 $cookies.token = token;
+            };
+
+            factory.login = function() {
+                auth.signin({}, function(profile, token) {
+                    factory.setSignIn(profile, token);
+
+                }, function(error) {
+                    logger.logError("There was an error logging in");
+                });
+            };
+
+            factory.signUp = function () {
+                auth.signup({}, function (profile, token) {
+                    logger.log('sign up done');
+
+                }, function (error) {
+                    logger.logError("There was an error in sign up");
+                });
             };
        
         return factory;
